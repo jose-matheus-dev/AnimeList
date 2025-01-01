@@ -1,0 +1,37 @@
+name: animelist
+
+services:
+  frontend:
+    build: .
+    stdin_open: true
+    command: pnpm dev
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: sync
+          path: ./public
+          target: /app/public
+        - action: sync
+          path: index.html
+          target: /app
+
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: Dockerfile
+        - action: rebuild
+          path: .dockerignore
+
+        - action: restart
+          path: compose.yaml
+
+    ports:
+      - 5173:5173
+
+    volumes:
+      - pnpm_cache:/pnpm/store
+
+volumes:
+  pnpm_cache:
