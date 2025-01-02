@@ -55,17 +55,16 @@ const StyledLogo = styled(Link)`
   justify-content: center;
 
   padding: calc(0.125rem + 1.28vh);
-  /* border: 1px solid #fff; */
+  outline: 1px solid #fff8;
   border-radius: 0.625em 0;
 
-  background: linear-gradient(90deg, #4c187c66, #be91e7);
+  background: linear-gradient(90deg, #4c187c55, ${({ theme }) => theme.accent + '88'});
   backdrop-filter: blur(8px);
 
   position: relative;
   z-index: 5;
   transform-origin: bottom;
 
-  font-family: 'Quicksand';
   font-size: clamp(0.15rem, min(calc(0rem + 5.28vh), calc(0rem + 2.97vw)), 9.5rem);
   font-weight: 700;
   line-height: 0.75em;
@@ -126,7 +125,6 @@ const StyledNavigation = styled.nav`
 
       a {
         cursor: pointer;
-        font-family: 'Quicksand', 'Roboto', sans-serif;
         font-weight: 700;
         color: #000000;
       }
