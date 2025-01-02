@@ -18,7 +18,7 @@ const AppStyles = createGlobalStyle`
 
 * {
   box-sizing: border-box;
-  outline: 0.128vh solid lime; //Debugging
+  /* outline: 0.128vh solid lime; //Debugging */
   padding: 0;
   margin: 0;
 }

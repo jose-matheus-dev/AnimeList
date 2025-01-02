@@ -31,4 +31,5 @@ const HeroBanner = styled(Aside)<{ $idx: number; $colors: string[] }>`
     background: url(/hero-${$idx}.webp) bottom/cover, linear-gradient(to bottom left, ${$colors[0]}, ${$colors[1]});
   `}
   z-index: 1;
+  outline: 0.128vh solid black;
 `;
