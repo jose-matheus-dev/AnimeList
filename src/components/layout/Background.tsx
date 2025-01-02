@@ -10,7 +10,11 @@ export const Background = styled.div`
 
   position: relative;
 
-  background: #a1a1a1;
+  background: url(${({ theme: { idx } }) => `/bg-${idx}.svg`}) #a1a1a1 repeat right / cover;
+
+  @media (max-aspect-ratio: 22/15), (min-aspect-ratio: 23/12) {
+    background-size: contain;
+  }
 
   filter: drop-shadow(0 0px 8px rgba(0, 0, 0, 0.4));
 `;
