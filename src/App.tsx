@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router';
-import './App.css';
 import { AnimeDetails, AnimeList, Home } from './pages';
 
 function App() {
