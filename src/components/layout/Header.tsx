@@ -1,19 +1,21 @@
 import { Link } from 'react-router';
 import styled from 'styled-components';
+import { useApp } from '../../hooks/useApp';
 
 function Navigation({ children }: { children?: React.ReactNode }) {
+  const { app } = useApp();
   return (
     <StyledNavigation>
       {children}
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to={`/?idx=${app.idx}`}>Home</Link>
         </li>
         <li>
-          <Link to="/list">List</Link>
+          <Link to={`/list?idx=${app.idx}`}>List</Link>
         </li>
         <li>
-          <Link to="/details">Details</Link>
+          <Link to={`/details?idx=${app.idx}`}>Details</Link>
         </li>
         <li>
           <Link target="_blank" to="https://github.com/jose-matheus-dev/AnimeList" title="GitHub: Source code">
@@ -53,7 +55,7 @@ const StyledLogo = styled(Link)`
   justify-content: center;
 
   padding: calc(0.125rem + 1.28vh);
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   border-radius: 0.625em 0;
 
   background: linear-gradient(90deg, #4c187c66, #be91e7);
