@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { useSearchParams } from 'react-router';
+import { animes } from '../utils/AnimeList';
 
 type DefaultApp = {
   idx: number;
@@ -27,7 +28,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     setSearchParams({ idx: String(app.idx) });
-    setTheme((prevTheme) => ({ ...prevTheme, idx: app.idx }));
+    const anime = animes[app.idx];
+    setTheme((prevTheme) => ({ ...prevTheme, colors: anime.colors, accent: anime.accent, idx: app.idx }));
   }, [app.idx]);
 
   return (
