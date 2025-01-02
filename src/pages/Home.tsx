@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Header, Main, Aside, Background } from '../components/layout';
 import { useApp } from '../hooks/useApp';
 import { animes } from '../utils/AnimeList';
+import { preload } from 'react-dom';
 
 export function Home() {
   const { app } = useApp();
+  useEffect(() => {
+    ['bg-0', 'bg-1', 'bg-2', 'hero-0', 'hero-1', 'hero-2'].forEach((image) =>
+      preload(`/${image}.webp`, { as: 'image' })
+    );
+  }, []);
+
   return (
     <>
       <Header />
@@ -20,7 +28,7 @@ export function Home() {
 
 const HeroBanner = styled(Aside)<{ $idx: number; $colors: string[] }>`
   ${({ $idx, $colors }) => css`
-    background: url(hero-${$idx}.png) bottom/cover, linear-gradient(to bottom left, ${$colors[0]}, ${$colors[1]});
+    background: url(/hero-${$idx}.webp) bottom/cover, linear-gradient(to bottom left, ${$colors[0]}, ${$colors[1]});
   `}
   z-index: 1;
 `;
