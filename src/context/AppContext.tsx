@@ -16,20 +16,25 @@ type AppContextType = {
 
 export const paths = ['/', '/list', '/details'];
 
-const defaultTheme = {
-} as DefaultTheme;
-
 export const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const idx = Math.abs(+searchParams.get('idx')!) % animes.length || 0;
+
+  const defaultTheme = {
+    colors: animes[idx].colors,
+    accent: animes[idx].accent,
+    idx,
+  };
+
   const [theme, setTheme] = useState(defaultTheme);
-  const [app, setApp] = useState({ idx: Math.abs(+searchParams.get('idx')!) % 3 || 0 });
+  const [app, setApp] = useState({ idx });
 
   useEffect(() => {
     setSearchParams({ idx: String(app.idx) });
     const anime = animes[app.idx];
-    setTheme((prevTheme) => ({ ...prevTheme, colors: anime.colors, accent: anime.accent, idx: app.idx }));
+    setTheme({ colors: anime.colors, accent: anime.accent, idx: app.idx });
   }, [app.idx]);
 
   return (
