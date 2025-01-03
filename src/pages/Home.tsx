@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Header, Main, Aside, Background } from '../components/layout';
-import { RadioIndicator } from '../components/widgets';
-import { useApp } from '../hooks/useApp';
-import { animes } from '../utils/AnimeList';
 import { preload } from 'react-dom';
+import { useApp } from '@/hooks/useApp';
+import { animes } from '@/utils/AnimeList';
+import { Aside, Background, Header, Main } from '@/components/layout';
+import { RadioIndicator } from '@/components/widgets';
 
 export function Home() {
   const { app } = useApp();

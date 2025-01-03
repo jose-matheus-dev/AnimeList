@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useEffect, useRef } from 'react';
-import { useApp } from '../../hooks/useApp';
-import { animes } from '../../utils/AnimeList';
+import { useApp } from '@/hooks/useApp';
+import { animes } from '@/utils/AnimeList';
 
 export function RadioIndicator() {
   const { app, setApp } = useApp();

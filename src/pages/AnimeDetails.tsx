@@ -1,4 +1,4 @@
-import { Header, Main, Aside, Background } from '../components/layout';
+import { Header, Main, Aside, Background } from '@/components/layout';
 
 export function AnimeDetails() {
   return (
