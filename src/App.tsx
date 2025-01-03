@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
-import { Home, AnimeList, AnimeDetails } from './pages';
-import { AppProvider } from './context/AppContext';
+import { AppProvider } from '@/context/AppContext';
+import { AnimeDetails, AnimeList, Home } from '@/pages';
 
 function App() {
   return (

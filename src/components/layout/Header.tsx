@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import styled from 'styled-components';
-import { useApp } from '../../hooks/useApp';
+import { useApp } from '@/hooks/useApp';
 
 function Navigation({ children }: { children?: React.ReactNode }) {
   const { app } = useApp();

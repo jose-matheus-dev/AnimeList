@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { useSearchParams } from 'react-router';
-import { animes } from '../utils/AnimeList';
+import { animes } from '@/utils/AnimeList';
 
 type DefaultApp = {
   idx: number;
