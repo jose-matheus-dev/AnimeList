@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { Header, Main, Aside, Background } from '../components/layout';
+import { RadioIndicator } from '../components/widgets';
 import { useApp } from '../hooks/useApp';
 import { animes } from '../utils/AnimeList';
 import { preload } from 'react-dom';
@@ -17,7 +18,9 @@ export function Home() {
     <>
       <Header />
       <Main>
-        <HeroBanner $idx={app.idx} $colors={animes[app.idx].colors} />
+        <HeroBanner $idx={app.idx} $colors={animes[app.idx].colors}>
+          <RadioIndicator />
+        </HeroBanner>
         <Background>
           <h1>Home</h1>
         </Background>
