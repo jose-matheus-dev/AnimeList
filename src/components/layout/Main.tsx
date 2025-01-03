@@ -8,6 +8,6 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
 
-  background: linear-gradient(to bottom left, #9239e5, #be91e7);
+  background: linear-gradient(to bottom left, ${({ theme }) => theme.colors[0]}, ${({ theme }) => theme.colors[1]});
   overflow: hidden;
 `;
