@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useEffect, useRef } from 'react';
-import { useApp } from '@/hooks/useApp';
+import { useApp } from '@/hooks';
 import { animes } from '@/utils/AnimeList';
 
 export function RadioIndicator() {
