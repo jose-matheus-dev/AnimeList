@@ -16,16 +16,21 @@ type AppContextType = {
 
 export const paths = ['/', '/list', '/details'];
 
-const defaultTheme = {
-  path: paths.indexOf(window.location.pathname),
-} as DefaultTheme;
-
 export const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const idx = +(searchParams.get('idx') || 0) % 3;
+
+  const defaultTheme = {
+    path: paths.indexOf(window.location.pathname),
+    accent: animes[idx].accent,
+    colors: animes[idx].colors,
+    idx,
+  } as DefaultTheme;
+
   const [theme, setTheme] = useState(defaultTheme);
-  const [app, setApp] = useState({ idx: +(searchParams.get('idx') || 0) % 3 });
+  const [app, setApp] = useState({ idx });
 
   useEffect(() => {
     setSearchParams({ idx: String(app.idx) });
