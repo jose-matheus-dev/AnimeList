@@ -1,18 +1,12 @@
-import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { preload } from 'react-dom';
-import { useApp } from '@/hooks/useApp';
+import { useApp, useImagePreload } from '@/hooks';
 import { animes } from '@/utils/AnimeList';
 import { Aside, Background, Header, Main } from '@/components/layout';
 import { RadioIndicator } from '@/components/widgets';
 
 export function Home() {
   const { app } = useApp();
-  useEffect(() => {
-    ['bg-0', 'bg-1', 'bg-2', 'hero-0', 'hero-1', 'hero-2'].forEach((image) =>
-      preload(`/${image}.webp`, { as: 'image' })
-    );
-  }, []);
+  useImagePreload(['hero-0', 'hero-1', 'hero-2'].map((img) => `/${img}.webp`));
 
   return (
     <>
