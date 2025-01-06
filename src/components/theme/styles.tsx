@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const AppStyles = createGlobalStyle`
 :root {
+  --x: 0;
+  --y: 0;
+  --angle: 90deg;
+
   font-family: 'Quicksand', 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
