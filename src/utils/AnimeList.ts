@@ -45,3 +45,4 @@ const animes: AnimeProps[] = [
 ];
 
 export { animes };
+export type { AnimeProps };

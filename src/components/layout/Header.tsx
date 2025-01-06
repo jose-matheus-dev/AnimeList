@@ -1,6 +1,6 @@
-import { Link } from 'react-router';
-import styled from 'styled-components';
 import { useApp } from '@/hooks';
+import { Link, useLocation } from 'react-router';
+import styled from 'styled-components';
 
 function Navigation({ children }: { children?: React.ReactNode }) {
   const { app } = useApp();
@@ -37,10 +37,11 @@ function Navigation({ children }: { children?: React.ReactNode }) {
 }
 
 export function Header() {
+  const location = useLocation();
   return (
     <StyledHeader>
       <Navigation>
-        <StyledLogo to="/">
+        <StyledLogo to="/" hidden={location.pathname === '/list'}>
           <span>ANIME</span>
           <span>LIST</span>
         </StyledLogo>
@@ -49,7 +50,7 @@ export function Header() {
   );
 }
 
-const StyledLogo = styled(Link)`
+const StyledLogo = styled(Link)<{ hidden: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,6 +70,8 @@ const StyledLogo = styled(Link)`
   font-weight: 700;
   line-height: 0.75em;
   text-transform: uppercase;
+
+  visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
 
   &::before {
     content: 'ANIMELIST';
