@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
-import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { useSearchParams } from 'react-router';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { animes } from '@/utils/AnimeList';
 
 type DefaultApp = {
+  isPageLeaving: boolean;
   idx: number;
 };
 
@@ -29,7 +30,7 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const [theme, setTheme] = useState(defaultTheme);
-  const [app, setApp] = useState({ idx });
+  const [app, setApp] = useState({ idx, isPageLeaving: false });
 
   useEffect(() => {
     setSearchParams({ idx: String(app.idx) });

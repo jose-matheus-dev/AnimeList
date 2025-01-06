@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { useApp, useImagePreload } from '@/hooks';
-import { animes } from '@/utils/AnimeList';
 import { Aside, Background, Header, Main } from '@/components/layout';
 import { RadioIndicator } from '@/components/widgets';
+import { useApp, useImagePreload } from '@/hooks';
+import { animes } from '@/utils/AnimeList';
 
 export function Home() {
   const { app } = useApp();
@@ -16,7 +16,7 @@ export function Home() {
           <RadioIndicator />
         </HeroBanner>
         <Background>
-          <h1>Home</h1>
+          <h1>Home - {app.isPageLeaving ? 'Leaving...' : 'Welcome!'}</h1>
         </Background>
       </Main>
     </>
