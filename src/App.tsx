@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router';
 import { AppProvider } from '@/context/AppContext';
 import { useApp, useImagePreload } from '@/hooks';
 import { AnimeDetails, AnimeList, Home } from '@/pages';
+import { useEffect, useState } from 'react';
+import { Route, Routes, useLocation } from 'react-router';
 
 function App() {
   const location = useLocation();
