@@ -14,7 +14,7 @@ const animes: AnimeProps[] = [
     name: 'Jujutsu Kaisen',
     arc: 'Shibuya Incident',
     description:
-      'The Shibuya Incident arc begins on October 31st, when a cursed veil isolates Shibuya. Sorcerers battle spirits and curses in chaotic, high-stakes clashes. Tragedies and shocking plot twists decisively reshape the course of the story.',
+      "Sorcerers battle curses in Shibuya after a cursed veil traps the city on Oct 31, leading to chaotic clashes and tragic twists that alter the series' trajectory.",
     cover:
       'https://m.media-amazon.com/images/M/MV5BZDZkMGQzOWItZGMzZC00MDVhLWI3NTYtN2ZlMDA4ODliMzJhXkEyXkFqcGc@._V1_.jpg',
     colors: ['#be91e7', '#9239e5'],
