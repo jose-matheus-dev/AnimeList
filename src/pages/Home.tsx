@@ -1,17 +1,19 @@
 import { Aside, Background, Header, Main } from '@/components/layout';
 import { opaque, slideIn, slideOut } from '@/components/theme';
-import { RadioIndicator } from '@/components/widgets';
+import { RadioIndicator, Confetti } from '@/components/widgets';
 import { useApp, useImagePreload } from '@/hooks';
 import { animes } from '@/utils/AnimeList';
+import { useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 export function Home() {
   const { app } = useApp();
+  const btnRef = useRef<HTMLButtonElement>(null);
   useImagePreload(['hero-0', 'hero-1', 'hero-2'].map((img) => `/${img}.webp`));
-  const handleClick = () => {};
 
   return (
     <>
+      <Confetti btnRef={btnRef} />
       <Header />
       <Main>
         <HeroBanner $idx={app.idx} $colors={animes[app.idx].colors}>
@@ -23,7 +25,7 @@ export function Home() {
               DISCOVER, ORGANIZE, AND SHARE YOUR PASSION FOR ANIME.
               <br /> JOIN US ON ANIMELIST!
             </h1>
-            <button onClick={handleClick}>Let's Go</button>
+            <button ref={btnRef}>Let's Go</button>
           </HeroSection>
         </Background>
       </Main>
@@ -76,4 +78,7 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
       opacity: 0;
     }
   `}
+  button:hover {
+    background-image: linear-gradient(90deg, rgba(138, 43, 226, 1), rgba(255, 165, 0, 1));
+  }
 `;
