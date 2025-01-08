@@ -1,21 +1,29 @@
 import { useApp } from '@/hooks';
 import { Link, useLocation } from 'react-router';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 function Navigation({ children }: { children?: React.ReactNode }) {
   const { app } = useApp();
+  const location = useLocation();
+
   return (
     <StyledNavigation>
       {children}
       <ul>
         <li>
-          <Link to={`/?idx=${app.idx}`}>Home</Link>
+          <StyledLink $isActive={location.pathname === '/'} to={`/?idx=${app.idx}`}>
+            Home
+          </StyledLink>
         </li>
         <li>
-          <Link to={`/list?idx=${app.idx}`}>List</Link>
+          <StyledLink $isActive={location.pathname === '/list'} to={`/list?idx=${app.idx}`}>
+            List
+          </StyledLink>
         </li>
         <li>
-          <Link to={`/details?idx=${app.idx}`}>Details</Link>
+          <StyledLink $isActive={location.pathname === '/details'} to={`/details?idx=${app.idx}`}>
+            Details
+          </StyledLink>
         </li>
         <li>
           <Link target="_blank" to="https://github.com/jose-matheus-dev/AnimeList" title="GitHub: Source code">
@@ -56,10 +64,10 @@ const StyledLogo = styled(Link)<{ hidden: boolean }>`
   justify-content: center;
 
   padding: calc(0.125rem + 1.28vh);
-  outline: 1px solid #fff8;
-  border-radius: 0.625em 0;
-
+  outline: 0.1vh solid #0004;
+  border-radius: 0.625em 0.125em;
   background: linear-gradient(90deg, #4c187c55, ${({ theme }) => theme.accent + '88'});
+  box-shadow: inset 0 0 1.28vh #0004, 0 0 1.28vh #0004;
   backdrop-filter: blur(8px);
 
   position: relative;
@@ -76,7 +84,7 @@ const StyledLogo = styled(Link)<{ hidden: boolean }>`
   &::before {
     content: 'ANIMELIST';
     position: absolute;
-    text-shadow: 0.128vh 0px 0px #fff, -0.128vh 0px 0px #fff, 0px 0.128vh 0px #fff, 0px -0.128vh 0px #fff;
+    text-shadow: 0.128vh 0px 0px #000, -0.128vh 0px 0px #000, 0px 0.128vh 0px #000, 0px -0.128vh 0px #000;
   }
 
   span {
@@ -95,6 +103,29 @@ const StyledLogo = styled(Link)<{ hidden: boolean }>`
       background-clip: text;
       -webkit-background-clip: text;
     }
+  }
+`;
+
+const StyledLink = styled(Link)<{ $isActive: boolean; children: string }>`
+  filter: drop-shadow();
+  && {
+    width: 50%;
+    display: block;
+    font-size: calc(1.76vh + 0.5rem);
+    ${({ $isActive, children }) =>
+      $isActive &&
+      css`
+        &:before {
+          content: '${children}';
+          position: absolute;
+          text-shadow: 0.128vh 0px 0px #000, -0.128vh 0px 0px #000, 0px 0.128vh 0px #000, 0px -0.128vh 0px #000;
+          z-index: -1;
+        }
+        background-image: linear-gradient(to right, #ffa500, #8a2be2);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      `}
   }
 `;
 
@@ -124,18 +155,19 @@ const StyledNavigation = styled.nav`
     color: #000000;
 
     li {
+      width: 50%;
       list-style: none;
 
-      a {
-        cursor: pointer;
-        font-weight: 700;
-        color: #000000;
-      }
-
       svg {
+        margin-left: auto;
         height: calc(0.5rem + 2.5vh);
         display: block;
       }
+    }
+    a {
+      cursor: pointer;
+      font-weight: 700;
+      color: #000000;
     }
   }
 `;
