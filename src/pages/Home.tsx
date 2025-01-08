@@ -1,6 +1,6 @@
 import { Aside, Background, Header, Main } from '@/components/layout';
 import { opaque, slideIn, slideOut } from '@/components/theme';
-import { RadioIndicator, Confetti } from '@/components/widgets';
+import { Confetti, RadioIndicator } from '@/components/widgets';
 import { useApp, useImagePreload } from '@/hooks';
 import { animes } from '@/utils/AnimeList';
 import { useRef } from 'react';
@@ -13,7 +13,6 @@ export function Home() {
 
   return (
     <>
-      <Confetti btnRef={btnRef} />
       <Header />
       <Main>
         <HeroBanner $idx={app.idx} $colors={animes[app.idx].colors}>
@@ -28,6 +27,7 @@ export function Home() {
             <button ref={btnRef}>Let's Go</button>
           </HeroSection>
         </Background>
+        <Confetti btnRef={btnRef} />
       </Main>
     </>
   );
@@ -58,7 +58,7 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
     width: max-content;
     padding: calc(min(0.99vw, 1.76vh) + 0.306rem) calc(min(3.69vw, 6.56vh) + 0.306rem);
 
-    background-image: linear-gradient(90deg, rgba(138, 43, 226, 0.4), rgba(255, 165, 0, 0.4));
+    background-image: linear-gradient(90deg, rgba(138, 43, 226, 0.5), rgba(255, 165, 0, 0.5));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
@@ -68,6 +68,13 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
 
     border: 0;
     border-radius: 0.625em;
+    user-select: none;
+    transition: box-shadow 200ms ease-in;
+  }
+
+  button:active {
+    -webkit-tap-highlight-color: transparent;
+    transition: box-shadow 100ms ease;
   }
 
   ${({ $isPageLeaving }) => css`
@@ -78,7 +85,7 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
       opacity: 0;
     }
   `}
-  button:hover {
-    background-image: linear-gradient(90deg, rgba(138, 43, 226, 1), rgba(255, 165, 0, 1));
+  button:hover, button:focus {
+    background-image: linear-gradient(90deg, rgba(138, 43, 226, 0.8), rgba(255, 165, 0, 0.8));
   }
 `;
