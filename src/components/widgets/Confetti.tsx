@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback } from 'react';
+import styled from 'styled-components';
 
 const colors = ['#ffa500', '#aa6300', '#8a2be2', '#4c187c', '#ff4500', '#3cb371', '#1e90ff', '#ff69b4'];
 
@@ -62,6 +63,8 @@ export function Confetti({ btnRef }: { btnRef: React.RefObject<HTMLButtonElement
 
       ctx.save();
       ctx.fillStyle = p.color;
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = '#000000';
       ctx.translate(p.x + p.size / 2, p.y + p.size / 2);
       ctx.rotate((p.rotation * Math.PI) / 180);
 
@@ -136,5 +139,14 @@ export function Confetti({ btnRef }: { btnRef: React.RefObject<HTMLButtonElement
     };
   }, [btnRef, throwConfetti]);
 
-  return <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, zIndex: 10, pointerEvents: 'none' }} />;
+  return <Canvas ref={canvasRef} />;
 }
+
+const Canvas = styled.canvas`
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+`;
