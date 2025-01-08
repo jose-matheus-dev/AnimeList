@@ -1,5 +1,6 @@
 import { Background, Header, Main } from '@/components/layout';
 import { slideIn, slideOut } from '@/components/theme';
+import { Cover } from '@/components/widgets/Cover';
 import { useApp } from '@/hooks';
 import { Link } from 'react-router';
 import styled, { css } from 'styled-components';
@@ -58,11 +59,11 @@ export function AnimeDetails() {
         <Article>
           <Section $isPageLeaving={app.isPageLeaving}>
             <h2>{detail.title}</h2>
-            <span>{detail.season} Season</span>
+            <span>Season {detail.season}</span>
             <span>{detail.episodes} Episodes</span>
             <Description>
-              {detail.description.map((des) => (
-                <p>{des}</p>
+              {detail.description.map((des, i) => (
+                <p key={i}>{des}</p>
               ))}
             </Description>
             <StyledLink to={detail.url} target="_blank" title={`Search "${detail.title}" on Google`}>
@@ -70,6 +71,7 @@ export function AnimeDetails() {
             </StyledLink>
             <Rating title="IMDb Rating">{detail.imdb}</Rating>
           </Section>
+          <Cover src={detail.cover} />
         </Article>
       </Main>
     </>
