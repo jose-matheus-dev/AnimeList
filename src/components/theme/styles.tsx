@@ -20,13 +20,6 @@ const AppStyles = createGlobalStyle`
   background-color: #242424;
 }
 
-* {
-  box-sizing: border-box;
-  /* outline: 0.128vh solid lime; //Debugging */
-  padding: 0;
-  margin: 0;
-}
-
 body {
   display: flex;
   place-items: center;

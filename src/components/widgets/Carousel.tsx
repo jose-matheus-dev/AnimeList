@@ -36,15 +36,17 @@ const Section = styled.div`
   & * {
     line-height: 1.15em;
     font-family: 'Roboto', system-ui, sans-serif;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: 0.128vh 0px 0px #000, -0.128vh 0px 0px #000, 0px 0.128vh 0px #000, 0px -0.128vh 0px #000;
     font-weight: 700;
   }
   h2 {
     font-size: 2rem;
+    font-size: clamp(0.15rem, min(calc(0rem + 5.28vh), calc(0rem + 2.97vw)), 9.5rem);
   }
   p {
     padding-top: 5%;
     font-size: 1.15rem;
+    font-size: clamp(0.25rem, min(1.35vw, 2.4vh), 9.5rem);
   }
 `;
 
@@ -90,13 +92,12 @@ const Item = styled.li<{ $anime: AnimeProps; $order: number }>`
 
     width: 100%;
     height: 100%;
-    border-radius: 10% 0;
 
-    box-shadow: min(0.36vw, 0.64vh) min(0.72vw, 1.28vh) min(1.08vw, 1.92vh) rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 1.28vh #0004, 0 0 1.28vh #0004;
     background: url(${({ $anime }) => $anime.cover}) center/contain no-repeat,
       linear-gradient(to bottom, ${({ $anime }) => $anime.colors[0]}, ${({ $anime }) => $anime.colors[1]});
-
     ${({ $order }) => $order === 0 && highlighted}
+    border-radius: 10% 2%;
   }
 `;
 
@@ -109,7 +110,6 @@ const List = styled.ul<{ $isPageLeaving: boolean }>`
 
   width: 93.85%;
   height: 65.63%;
-  overflow: hidden;
 
   ${({ $isPageLeaving }) => css`
     animation: ${$isPageLeaving ? slideOut : slideIn} 0.25s ease ${$isPageLeaving && '0.25s'} forwards;

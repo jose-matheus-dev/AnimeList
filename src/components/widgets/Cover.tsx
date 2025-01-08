@@ -20,7 +20,7 @@ export function Cover({ src }: CoverProps) {
     <>
       <Arrow $isPageLeaving={app.isPageLeaving} onClick={() => handleClick(2)} />
       <Wrapper $isPageLeaving={app.isPageLeaving}>
-        <img src={src} />
+        <StyledCover $src={src} />
         <RadioIndicator />
       </Wrapper>
       <Arrow $isPageLeaving={app.isPageLeaving} onClick={() => handleClick(1)} />
@@ -35,7 +35,7 @@ const Wrapper = styled.div<{ $isPageLeaving: boolean }>`
   img {
     aspect-ratio: 23 / 32;
     height: min(38.25vw, 68vh);
-    border-radius: 0 min(3.69vw, 6.56vh);
+    border-radius: 2% 10%;
     object-fit: center/cover;
 
     ${({ $isPageLeaving }) => css`
@@ -45,10 +45,20 @@ const Wrapper = styled.div<{ $isPageLeaving: boolean }>`
   }
 `;
 
+const StyledCover = styled.div<{ $src: string }>`
+  position: relative;
+  aspect-ratio: 23 / 32;
+  height: min(38.25vw, 68vh);
+  background: url(${({ $src }) => $src}) center/cover;
+  border-radius: 2% 10%;
+  box-shadow: inset 0 0 1.28vh #0004, 0 0 1.28vh #0004;
+`;
+
 const Arrow = styled.button<{ $isPageLeaving: boolean }>`
   aspect-ratio: 1;
   padding: 0;
   height: min(7.02vw, 12.48vh);
+  box-shadow: inset 0 0 1.28vh #0008;
   background: url(${arrow}) center / calc(min(4.48vh, 2.52vw) + 0.153rem) no-repeat, #d9d9d955;
   backdrop-filter: blur(8px);
   border-radius: 50%;

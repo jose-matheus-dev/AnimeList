@@ -39,6 +39,7 @@ const HeroBanner = styled(Aside)<{ $idx: number; $colors: string[] }>`
   `}
   z-index: 1;
   outline: 0.128vh solid black;
+  box-shadow: inset 0 0 1.28vh #0008, 0 0 1.28vh #0008;
 `;
 
 const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
@@ -68,12 +69,14 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
 
     border: 0;
     border-radius: 0.625em;
+    box-shadow: inset 0 0 1.28vh #0004, 0 0 1.28vh #0004;
     user-select: none;
     transition: box-shadow 200ms ease-in;
   }
 
   button:active {
     -webkit-tap-highlight-color: transparent;
+    box-shadow: inset 0 0 1.28vh #000f;
     transition: box-shadow 100ms ease;
   }
 

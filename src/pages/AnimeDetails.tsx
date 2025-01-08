@@ -116,7 +116,7 @@ const Section = styled.section<{ $isPageLeaving: boolean }>`
 
   min-height: 55%;
 
-  grid-auto-columns: 1fr 1fr;
+  grid-auto-columns: minmax(1fr, auto) 1fr;
   grid-auto-rows: max-content max-content auto;
 
   column-gap: min(0.72vw, 1.28vh);
@@ -126,6 +126,7 @@ const Section = styled.section<{ $isPageLeaving: boolean }>`
 
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 1.28vh #0004, 0 0 1.28vh #0004;
 
   text-align: left;
   & * {
@@ -135,7 +136,7 @@ const Section = styled.section<{ $isPageLeaving: boolean }>`
   }
   h2 {
     grid-area: span 2 / 1;
-    font-size: calc(min(4.48vh, 2.52vw) + 0.306rem);
+    font-size: calc(min(2.52vw, 4.48vh) + 0.153rem);
     letter-spacing: min(0.045vw, 0.8vh);
     color: #ffffff;
     position: relative;
@@ -207,6 +208,7 @@ const Rating = styled.div`
   aspect-ratio: 1;
   height: min(10.62vw, 18.88vh);
   background-color: ${({ theme }) => theme.colors[theme.colors[0] === theme.accent ? 1 : 0]};
+  box-shadow: inset 0 0 1.28vh #0008, 0 0 1.28vh #0008;
   border-radius: 50%;
 
   display: flex;
