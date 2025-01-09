@@ -75,7 +75,6 @@ const HeroSection = styled.section<{ $isPageLeaving: boolean }>`
   }
 
   button:active {
-    -webkit-tap-highlight-color: transparent;
     box-shadow: inset 0 0 1.28vh #000f;
     transition: box-shadow 100ms ease;
   }

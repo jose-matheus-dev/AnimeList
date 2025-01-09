@@ -32,10 +32,6 @@ body {
   width: 100%;
 }
 
-.page {
-  height: 100%;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -60,6 +56,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  -webkit-tap-highlight-color: transparent;
 }
 button:hover {
   border-color: #646cff;
