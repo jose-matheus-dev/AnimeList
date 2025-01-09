@@ -164,9 +164,6 @@ const NormalizeStyles = createGlobalStyle`
     display: none;
   }
 
-  [hidden] {
-    display: none;
-  }
 `;
 
 export { NormalizeStyles };
