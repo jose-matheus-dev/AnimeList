@@ -109,7 +109,7 @@ const StyledLogo = styled(Link)<{ hidden: boolean }>`
 const StyledLink = styled(Link)<{ $isActive: boolean; children: string }>`
   filter: drop-shadow();
   && {
-    width: 50%;
+    width: 100%;
     display: block;
     font-size: calc(1.76vh + 0.5rem);
     ${({ $isActive, children }) =>
