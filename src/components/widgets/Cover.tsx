@@ -30,8 +30,10 @@ export function Cover({ src }: CoverProps) {
 
 const Wrapper = styled.div<{ $isPageLeaving: boolean }>`
   position: relative;
-  height: min(45vw, 80vh);
-  align-self: end;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img {
     aspect-ratio: 23 / 32;
     height: min(38.25vw, 68vh);
