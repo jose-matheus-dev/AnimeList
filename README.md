@@ -1,7 +1,16 @@
 # AnimeList
 
-### Deploy: https://animelist-dev.vercel.app/
+Single-page web application that presents anime information with per-title adaptive theming.  
+UX/UI fully implemented based on a Figma prototype created from a PNG reference.  
+**Stack:** Vite.js, React (TypeScript), pnpm, Docker Compose, styled-components, react-router.
 
+![Pages - AnimeList](https://github.com/user-attachments/assets/d9565e48-b7c6-4c29-8dde-b9aa27dfde87)
+
+> [!Note]  
+> To explore the animations, transitions, and interactions, check out the deployed version:  
+> https://animelist-dev.vercel.app/
+
+---
 _Clone the repository:_
 ```
 git clone https://github.com/jose-matheus-dev/AnimeList.git
